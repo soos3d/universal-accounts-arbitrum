@@ -42,7 +42,7 @@ Universal Accounts by Particle Network enable users to interact with any blockch
 1. **Clone the repository**
 
 ```bash
-git clone https://github.com/TABASCOatw/universal-accounts-avalanche.git
+git clone https://github.com/soos3d/universal-accounts-avalanche.git
 cd universal-accounts-avalanche
 ```
 

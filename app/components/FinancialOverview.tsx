@@ -4,17 +4,27 @@ interface FinancialOverviewProps {
     erc20: string;
   } | null;
   universalBalanceUSD: number;
+  onUpdateBalances: () => void;
 }
 
 export const FinancialOverview = ({
   eoaBalances,
   universalBalanceUSD,
+  onUpdateBalances,
 }: FinancialOverviewProps) => {
   return (
     <div className="bg-[#1F1F3A]/80 rounded-xl shadow-2xl p-4 border border-[#3A3A5A] backdrop-blur-sm h-full">
-      <h3 className="text-base font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#C084FC] to-[#8B5CF6] mb-3">
-        Financial Overview
-      </h3>
+      <div className="flex justify-between items-center mb-3">
+        <h3 className="text-base font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#C084FC] to-[#8B5CF6]">
+          Financial Overview
+        </h3>
+        <button
+          onClick={onUpdateBalances}
+          className="bg-[#3A3A5A] hover:bg-[#4A4A6A] text-white font-bold py-1 px-2 rounded-lg text-xs transition-all"
+        >
+          Update
+        </button>
+      </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {/* EOA Balances */}

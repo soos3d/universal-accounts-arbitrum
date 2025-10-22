@@ -11,17 +11,17 @@ export const Header = () => {
           />
           <div className="text-xl font-bold text-gray-400">×</div>
           <img
-            src="https://pbs.twimg.com/profile_images/1970156760116944897/06WZz7t4_400x400.jpg"
-            alt="Avalanche Logo"
-            className="h-10 w-10 rounded-full ring-2 ring-[#E84142]/30 shadow-lg"
+            src="https://universalx.app/_next/image?url=https%3A%2F%2Fstatic.particle.network%2Fchains%2Fevm%2Ficons%2F42161.png&w=32&q=75"
+            alt="Arbitrum Logo"
+            className="h-10 w-10 rounded-full ring-2 ring-blue-500/30 shadow-lg"
           />
         </div>
         <div className="text-center space-y-1">
-          <h1 className="text-2xl md:text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#C084FC] via-[#8B5CF6] to-[#E84142] drop-shadow-lg">
-            Universal Accounts on Avalanche
+          <h1 className="text-2xl md:text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#C084FC] via-[#8B5CF6] to-blue-500 drop-shadow-lg">
+            Universal Accounts on Arbitrum
           </h1>
           <p className="text-sm md:text-base text-gray-300 max-w-2xl">
-            Use funds from any chain directly in your Avalanche dApp
+            Use funds from any chain directly in your Arbitrum dApp
           </p>
         </div>
       </div>

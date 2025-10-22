@@ -123,7 +123,7 @@ const App = () => {
     setIsLoading(true);
     setTxResult(null);
 
-    const CONTRACT_ADDRESS = "0xdea7bF60E53CD578e3526F36eC431795f7EEbFe6"; // NFT contract on Avalanche
+    const CONTRACT_ADDRESS = "0x702E0755450aFb6A72DbE3cAD1fb47BaF3AC525C"; // NFT contract on Arbitrum
 
     try {
       const contractInterface = new Interface(["function mint() external"]);
@@ -131,7 +131,7 @@ const App = () => {
       // Create Universal Transaction
       const transaction =
         await universalAccountInstance.createUniversalTransaction({
-          chainId: CHAIN_ID.AVALANCHE_MAINNET,
+          chainId: CHAIN_ID.ARBITRUM_MAINNET_ONE,
           expectTokens: [],
           transactions: [
             {
@@ -192,6 +192,24 @@ const App = () => {
     }
   };
 
+  const handleUpdateBalances = async () => {
+    if (publicClient && address) {
+      const balances = await fetchEOABalances(publicClient, address);
+      setEoaBalances(balances);
+    }
+    if (universalAccountInstance) {
+      const assets = await universalAccountInstance.getPrimaryAssets();
+      if (assets.totalAmountInUSD < 0.5) {
+        setPrimaryAssets({
+          totalAmountInUSD: 0,
+          assets: [],
+        });
+      } else {
+        setPrimaryAssets(assets);
+      }
+    }
+  };
+
   const handleTransferUsdc = async (amount: string) => {
     if (!walletClient || !accountInfo) return;
     await transferUsdcToUA(
@@ -242,6 +260,7 @@ const App = () => {
                 <FinancialOverview
                   eoaBalances={eoaBalances}
                   universalBalanceUSD={primaryAssets?.totalAmountInUSD || 0}
+                  onUpdateBalances={handleUpdateBalances}
                 />
               </div>
             </div>
